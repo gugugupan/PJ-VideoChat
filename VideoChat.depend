@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1338362945 source:/home/yukis/Code/VideoChat/main.cpp
+1338379038 source:/home/yukis/Code/VideoChat/main.cpp
 	<iostream>
 	"camera.h"
-	<highgui.h>
 
-1338364416 /home/yukis/Code/VideoChat/camera.h
+1338374730 /home/yukis/Code/VideoChat/camera.h
 	<cv.h>
 	<cxcore.h>
+	<highgui.h>
 
 1270517080 /usr/include/opencv/cv.h
 	<chdl.h>
@@ -88,4 +88,7 @@
 	"highgui.hpp"
 
 1270517080 /usr/include/opencv/highgui.hpp
+
+1338375809 source:/home/yukis/Code/VideoChat/camera.cpp
+	"camera.h"
 

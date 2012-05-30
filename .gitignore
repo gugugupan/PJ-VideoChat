@@ -10,9 +10,8 @@
 *.lai
 *.la
 *.a
-<<<<<<< HEAD
 
 *.cbp
 bin/*
-=======
->>>>>>> c9934fa01158eaee43d878d2983517a787632118
+VideoChat.depend
+*.layout
