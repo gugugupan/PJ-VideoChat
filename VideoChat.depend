@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1338379038 source:/home/yukis/Code/VideoChat/main.cpp
+1338394237 source:/home/yukis/Code/VideoChat/main.cpp
 	<iostream>
 	"camera.h"
 
@@ -91,4 +91,11 @@
 
 1338375809 source:/home/yukis/Code/VideoChat/camera.cpp
 	"camera.h"
+
+1338396472 source:/home/yukis/Code/VideoChat/coder.cpp
+	"coder.h"
+
+1338396392 /home/yukis/Code/VideoChat/coder.h
+	<cv.h>
+	<cxcore.h>
 
