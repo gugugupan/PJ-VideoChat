@@ -4,4 +4,6 @@
 #include <cv.h>
 #include <cxcore.h>
 
+    extern void set_camera() ;
+
 #endif
