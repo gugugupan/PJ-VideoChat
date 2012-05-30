@@ -1,0 +1,91 @@
+# depslib dependency file v1.0
+1338362945 source:/home/yukis/Code/VideoChat/main.cpp
+	<iostream>
+	"camera.h"
+	<highgui.h>
+
+1338364416 /home/yukis/Code/VideoChat/camera.h
+	<cv.h>
+	<cxcore.h>
+
+1270517080 /usr/include/opencv/cv.h
+	<chdl.h>
+	"cxcore.h"
+	"cvtypes.h"
+	"cv.hpp"
+	"cvcompat.h"
+
+1270517080 /usr/include/opencv/cxcore.h
+	"ipl.h"
+	"ipl/ipl.h"
+	"cxtypes.h"
+	"cxerror.h"
+	"cvver.h"
+	"cxcore.hpp"
+
+1270517080 /usr/include/opencv/cxtypes.h
+	<assert.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	<stdint.h>
+	<intrin.h>
+	<emmintrin.h>
+	<fastmath.h>
+	<math.h>
+	<ipl.h>
+	<ipl/ipl.h>
+
+1270517080 /usr/include/opencv/cxerror.h
+
+1270517080 /usr/include/opencv/cvver.h
+
+1316061869 /usr/include/opencv/cxcore.hpp
+	"cxmisc.h"
+	<algorithm>
+	<cmath>
+	<cstddef>
+	<complex>
+	<map>
+	<new>
+	<string>
+	<vector>
+	"cxoperations.hpp"
+	"cxmat.hpp"
+	"cxflann.h"
+
+1270517080 /usr/include/opencv/cxmisc.h
+	<limits.h>
+	<malloc.h>
+	<alloca.h>
+	<stdlib.h>
+
+1270517080 /usr/include/opencv/cxoperations.hpp
+	<string.h>
+	<limits.h>
+	<ext/atomicity.h>
+	<bits/atomicity.h>
+	"windows.h"
+
+1270517080 /usr/include/opencv/cxmat.hpp
+	<limits.h>
+
+1270517080 /usr/include/opencv/cxflann.h
+
+1270517080 /usr/include/opencv/cvtypes.h
+	<assert.h>
+	<stdlib.h>
+
+1270517080 /usr/include/opencv/cv.hpp
+
+1270517080 /usr/include/opencv/cvcompat.h
+	<string.h>
+
+1270517080 /usr/include/opencv/highgui.h
+	"cxcore.h"
+	<windows.h>
+	<chdl.h>
+	"highgui.hpp"
+
+1270517080 /usr/include/opencv/highgui.hpp
+
