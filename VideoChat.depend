@@ -1,7 +1,15 @@
 # depslib dependency file v1.0
-1338394237 source:/home/yukis/Code/VideoChat/main.cpp
+1338644693 source:/home/yukis/Code/VideoChat/main.cpp
 	<iostream>
+	<cstdio>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netdb.h>
+	<unistd.h>
+	<pthread.h>
 	"camera.h"
+	"coder.h"
+	"SocketTransfer.h"
 
 1338374730 /home/yukis/Code/VideoChat/camera.h
 	<cv.h>
@@ -98,4 +106,14 @@
 1338396392 /home/yukis/Code/VideoChat/coder.h
 	<cv.h>
 	<cxcore.h>
+
+1338643361 source:/home/yukis/Code/VideoChat/SocketTransfer.cpp
+	<cstring>
+	<cstdio>
+	<sys/socket.h>
+	"SocketTransfer.h"
+
+1338643359 /home/yukis/Code/VideoChat/SocketTransfer.h
+	<string>
+	<WinSock2.h>
 
