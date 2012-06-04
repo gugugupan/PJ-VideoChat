@@ -2,9 +2,12 @@
 
 CvCapture *camera_cap ;
 
-void set_camera()
+void set_camera( int auth )
 {
-    camera_cap = cvCreateCameraCapture( -1 ) ;
+    if ( auth || 1 )
+        camera_cap = cvCreateCameraCapture( -1 ) ;
+    else
+        camera_cap = cvCaptureFromFile( "test.avi" ) ;
 }
 
 void destroy_camera()

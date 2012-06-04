@@ -63,7 +63,7 @@ int main( int argc , char *argv[] )
         first_turn = true ;
     }
 
-    set_camera() ;
+    set_camera( program_state ) ;
     IplImage *test_image = get_camera_image() ;
     CvSize image_size ;
     image_size .width = 320 ;
@@ -81,6 +81,8 @@ int main( int argc , char *argv[] )
         // catch image from camera
         cvResize( get_camera_image() , frame , CV_INTER_LINEAR ) ;
 
+        cout << "GETOK" << endl;
+
         // encode image
         encode( frame , data ) ;
 
@@ -89,10 +91,18 @@ int main( int argc , char *argv[] )
             first_turn = false ;
         else {
             char *houjue = ( char *) malloc( sizeof( char ) * 4096 ) ;
-            for ( int i = 0 ; i < transfer_len ; i ++ )
+            int i = 0 ;
+            for ( int x = 0 ; x < image_size .height ; x ++ )
             {
-                sprintf( houjue , "%d=" , data[ i ] ) ;
-                transfer -> send( houjue ) ;
+                //cout << x << endl;
+                strcpy( houjue , "" ) ;
+                for ( int y = 0 ; y < image_size .width ; y ++ )
+                {
+                    sprintf( houjue + strlen( houjue ) , "%d=" , data[ i ++ ] ) ;
+                    //cout << "!" ;
+                    transfer -> send( houjue ) ;
+                    //cout << "!!" << endl;
+                }
             }
             free( houjue ) ;
         }
@@ -101,16 +111,22 @@ int main( int argc , char *argv[] )
 
         // recive data
         char *houjue = ( char *) malloc( sizeof( char ) * 4096 ) ;
-        for ( int i = 0 ; i < transfer_len ; i ++ )
+        int i = 0 ;
+        for ( int x = 0 ; x < image_size .height ; x ++ )
         {
             transfer -> receive( houjue ) ;
-            data[ i ] = 0 ; int x = 0 ;
-            while ( houjue[ x ] != '=' )
+            int xp = 0 ;
+            for ( int y = 0 ; y < image_size .width ; y ++ )
             {
-                data[ i ] = data[ i ] * 10 + houjue[ x ] - '0' ;
-                x ++ ;
+                data[ i ] = 0 ;
+                while ( houjue[ xp ] != '=' )
+                {
+                    data[ i ] = data[ i ] * 10 + houjue[ xp ] - '0' ;
+                    x ++ ;
+                }
+                i ++ ;
+                xp ++ ;
             }
-            //cout << x << endl;
         }
         free( houjue ) ;
 

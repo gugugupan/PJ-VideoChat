@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1338768200 source:/home/yukis/Code/VideoChat/main.cpp
+1338792750 source:/home/yukis/Code/VideoChat/main.cpp
 	<iostream>
 	<cstdio>
 	<sys/socket.h>
@@ -11,7 +11,7 @@
 	"coder.h"
 	"SocketTransfer.h"
 
-1338374730 /home/yukis/Code/VideoChat/camera.h
+1338793007 /home/yukis/Code/VideoChat/camera.h
 	<cv.h>
 	<cxcore.h>
 	<highgui.h>
@@ -97,7 +97,7 @@
 
 1270517080 /usr/include/opencv/highgui.hpp
 
-1338375809 source:/home/yukis/Code/VideoChat/camera.cpp
+1338793063 source:/home/yukis/Code/VideoChat/camera.cpp
 	"camera.h"
 
 1338768411 source:/home/yukis/Code/VideoChat/coder.cpp
