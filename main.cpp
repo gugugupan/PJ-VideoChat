@@ -64,20 +64,22 @@ int main( int argc , char *argv[] )
     }
 
     set_camera() ;
-    IplImage *test_frame = get_camera_image() ;
-    CvSize camera_size = cvGetSize( test_frame ) ; // Width = 640   Height = 480
-    int transfer_len = camera_size .height * camera_size .width * 3 ;
+    IplImage *test_image = get_camera_image() ;
+    CvSize image_size ;
+    image_size .width = 320 ;
+    image_size .height = 240 ;
+    int transfer_len = image_size .height * image_size .width ;
 
     cvNamedWindow( "show" , 0 ) ;
     while ( 1 )
     {
         // Initial
-        IplImage *frame ;
-        IplImage *show_img ;
-        uchar *data = ( uchar* ) malloc( sizeof( uchar ) * camera_size .height * camera_size .width * 3 ) ;
+        IplImage *frame    = cvCreateImage( image_size , test_image -> depth , test_image -> nChannels ) ;
+        IplImage *show_img = cvCreateImage( image_size , test_image -> depth , test_image -> nChannels ) ;
+        uchar *data = ( uchar* ) malloc( sizeof( uchar ) * transfer_len ) ;
 
         // catch image from camera
-        frame = get_camera_image() ;
+        cvResize( get_camera_image() , frame , CV_INTER_LINEAR ) ;
 
         // encode image
         encode( frame , data ) ;
@@ -86,7 +88,7 @@ int main( int argc , char *argv[] )
         if ( first_turn )
             first_turn = false ;
         else {
-            char *houjue = ( char *) malloc( sizeof( char ) * 10 ) ;
+            char *houjue = ( char *) malloc( sizeof( char ) * 4096 ) ;
             for ( int i = 0 ; i < transfer_len ; i ++ )
             {
                 sprintf( houjue , "%d=" , data[ i ] ) ;
@@ -98,26 +100,23 @@ int main( int argc , char *argv[] )
         cout << "SEND OK" << endl;
 
         // recive data
-        char *houjue = ( char *) malloc( sizeof( char ) * 10 ) ;
+        char *houjue = ( char *) malloc( sizeof( char ) * 4096 ) ;
         for ( int i = 0 ; i < transfer_len ; i ++ )
         {
-            //cout << i << endl;
             transfer -> receive( houjue ) ;
-            //cout << "TRANSFER OK" << endl;
             data[ i ] = 0 ; int x = 0 ;
             while ( houjue[ x ] != '=' )
             {
                 data[ i ] = data[ i ] * 10 + houjue[ x ] - '0' ;
                 x ++ ;
             }
-            //cout << "END" << endl;
+            //cout << x << endl;
         }
         free( houjue ) ;
 
         cout << "RECIVE OK" << endl;
 
         // decode image
-        show_img = cvCreateImage( camera_size , frame -> depth , frame -> nChannels ) ;
         decode( data , show_img ) ;
 
         // show image
@@ -129,6 +128,7 @@ int main( int argc , char *argv[] )
 
         // release
         cvReleaseImage( &show_img ) ;
+        cvReleaseImage( &frame ) ;
         free( data ) ;
     }
 
