@@ -97,12 +97,8 @@ int main( int argc , char *argv[] )
                 //cout << x << endl;
                 strcpy( houjue , "" ) ;
                 for ( int y = 0 ; y < image_size .width ; y ++ )
-                {
                     sprintf( houjue + strlen( houjue ) , "%d=" , data[ i ++ ] ) ;
-                    //cout << "!" ;
-                    transfer -> send( houjue ) ;
-                    //cout << "!!" << endl;
-                }
+                transfer -> send( houjue ) ;
             }
             free( houjue ) ;
         }
